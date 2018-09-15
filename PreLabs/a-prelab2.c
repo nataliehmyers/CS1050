@@ -5,7 +5,7 @@ the user and then perform arithmetic operations using these two variables.*/
 
 #include <stdio.h>
 
-int main(void){
+int main(void) {
 
     int num1, num2, sum, product;
 
