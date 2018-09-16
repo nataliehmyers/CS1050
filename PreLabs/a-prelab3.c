@@ -6,7 +6,7 @@
 
 int selection_function() {
     int user_selection;
-    do{
+    do {
         printf("Area calculation\n(1) Square\n(2) Cube\n(3) Circle\nPlease make a selection: ");
         scanf("%d", &user_selection);
     } while(user_selection <= 0 || user_selection > 3);
