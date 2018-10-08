@@ -12,6 +12,7 @@ int errorCheckUnits(int);
 float getRate(int, int);
 int charge(int);
 
+
 int main() {
 
     int selection, units, connectionCharge, repeat, timesRepeated, bonusInt, i, bonusCalc;
