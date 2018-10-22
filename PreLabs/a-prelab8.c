@@ -9,17 +9,16 @@ void printArray(int*, int);
 
 int main() {
     int value;
-    int array[20];
+    int array[10];
     int *output = array;
 
     printf("Enter a value to calculate the factorial: ");
     scanf("%d", &value);
     errorCheck(value);
     while (errorCheck(value) == 1) {
-        printf("Input must be larger than 0 and less than 20. Please enter again: ");
+        printf("Input must be larger than 0 and less than or equal to 10. Please enter again: ");
         scanf("%d", &value);
     }
-    // printf("made it here");
     factorial(output, value);
     printArray(output, value);
 }
@@ -34,6 +33,7 @@ void factorial(int *output, int value) {
 }
 
 void printArray(int *output, int value) {
+    printf("The array of the stored factorial values:\n");
     for (int i = 1; i <= value; i++) {
         printf("%d ", *output);
         output++;
@@ -42,8 +42,7 @@ void printArray(int *output, int value) {
 }
 
 int errorCheck(value) {
-
-    if (value < 1 || value > 19) {
+    if (value < 1 || value > 10) {
         return 1;
     }
     return 0;
