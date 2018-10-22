@@ -1,4 +1,4 @@
-//
+// Use pointer notation to calculate and print factorials.
 // Created by Natalie Myers on 10/18/18
 
 #include <stdio.h>
@@ -19,7 +19,7 @@ int main() {
         printf("Input must be larger than 0 and less than 20. Please enter again: ");
         scanf("%d", &value);
     }
-    printf("made it here");
+    // printf("made it here");
     factorial(*output, value);
 }
 
@@ -27,12 +27,13 @@ void factorial(int *output, int value) {
     int i;
     int factorial = 1;
     // *output = 1;
+    // printf("made it this far");
 
     for (i = 0; i <= value; i++) {
         factorial = factorial * i;
         *output = factorial;
         printf("%d", *output);
-        printf("please work");
+        // printf("please work");
     }
 }
 
