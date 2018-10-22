@@ -20,25 +20,25 @@ int main() {
         scanf("%d", &value);
     }
     // printf("made it here");
-    factorial(*output, value);
+    factorial(output, value);
+    printArray(output, value);
 }
 
 void factorial(int *output, int value) {
-    int i;
     int factorial = 1;
-    // *output = 1;
-    // printf("made it this far");
-
-    for (i = 0; i <= value; i++) {
+    for (int i = 1; i <= value; i++) {
         factorial = factorial * i;
         *output = factorial;
-        printf("%d", *output);
-        // printf("please work");
+        output++;
     }
 }
 
 void printArray(int *output, int value) {
-    printf("%d", *output);
+    for (int i = 1; i <= value; i++) {
+        printf("%d ", *output);
+        output++;
+    }
+    printf("\n");
 }
 
 int errorCheck(value) {
