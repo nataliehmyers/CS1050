@@ -41,7 +41,7 @@ void printArray(int *output, int value) {
     printf("\n");
 }
 
-int errorCheck(value) {
+int errorCheck(int value) {
     if (value < 1 || value > 10) {
         return 1;
     }
