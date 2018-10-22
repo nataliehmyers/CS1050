@@ -4,7 +4,6 @@
 
 #include <stdio.h>
 #include <math.h>
-#include <getopt.h>
 
 void displayMenu();
 int errorCheck(int);
@@ -16,7 +15,8 @@ int charge(int);
 int main() {
 
     int selection, units, connectionCharge, repeat, timesRepeated, bonusInt, i, bonusCalc;
-    float rate, totalBills;
+    float rate;
+    float totalBills = 0;
     repeat = 1;
     timesRepeated = 0;
     bonusCalc = 1;
