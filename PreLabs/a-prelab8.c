@@ -4,7 +4,7 @@
 #include <stdio.h>
 
 int errorCheck(int);
-void factorial(int *output, int limit);
+void factorial(int *output, int value);
 void printArray(int*, int);
 
 int main() {
