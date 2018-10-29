@@ -8,7 +8,7 @@ int errorCheck(int);
 int factorial(int);
 void printArray(float*, int);
 void maclaurinSeries(float*, int, int);
-void reverseArray(float*, int); // attempted again
+void reverseArray(float*, int);
 
 int main() {
     int value, size;
@@ -31,6 +31,7 @@ int main() {
         scanf("%d", &size);
     }
     maclaurinSeries(ptrArray, size, value);
+    reverseArray(ptrArray, size);
 }
 
 int factorial(int value) { // takes the factorial of a given int
@@ -58,7 +59,7 @@ void maclaurinSeries(float *ptrArray, int size, int value) { // calculates array
     int n = size;
     *ptrArray = 1;
 
-    for (i = 1; i <= n; i++) {
+    for (i = 1; i <= n; i++) { // iterates through elements
         if (i % 2 == 0){ // checks odds or evens
             total = total + (pow(x, i*2)/factorial(i*2));
         } else {
@@ -76,15 +77,11 @@ int errorCheck(int value) { // check for valid inputs
     return 0;
 }
 
-/*
-void reverseArray(float *ptrArray, value) {
-    float reversedArray[MAX];
-    float array_size = sizeof(ptrArray);
-    float *ptrReversedArray = ptrArray + array_size - 1;
-    int i, x;
-
-    for (i = value - 1, x = 0; i >= 0; value--, x++) {
-        ptrReversedArray = ptrArray;
+void reverseArray(float *ptrArray, size) {
+    int i;
+    ptrArray += size;
+    printf("\nThe reverse array is:\n");
+    for (i = 0; i <= size; i++) { // iterates through elements
+        printf("%f ", *(ptrArray - i));
     }
 }
-*/
