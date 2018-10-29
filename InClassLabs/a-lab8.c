@@ -77,7 +77,7 @@ int errorCheck(int value) { // check for valid inputs
     return 0;
 }
 
-void reverseArray(float *ptrArray, size) {
+void reverseArray(float *ptrArray, int size) {
     int i;
     ptrArray += size;
     printf("\nThe reverse array is:\n");
