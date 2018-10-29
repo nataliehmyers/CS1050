@@ -46,7 +46,7 @@ int factorial(int value) { // takes the factorial of a given int
 void printArray(float *ptrArray, int size) { // prints array values
     int i;
     printf("The array for the Maclaurin series is:\n");
-    for (i = 0; i < size; i++) { // iterates through array values
+    for (i = 0; i <= size; i++) { // iterates through array values
         printf("%f ", *(ptrArray + i));
     }
 }
@@ -58,7 +58,7 @@ void maclaurinSeries(float *ptrArray, int size, int value) { // calculates array
     int n = size;
     *ptrArray = 1;
 
-    for (i = 1; i < n; i++) {
+    for (i = 1; i <= n; i++) {
         if (i % 2 == 0){ // checks odds or evens
             total = total + (pow(x, i*2)/factorial(i*2));
         } else {
@@ -66,7 +66,7 @@ void maclaurinSeries(float *ptrArray, int size, int value) { // calculates array
         }
     *(ptrArray + i) = total;
     }
-    printArray(ptrArray, size);
+    printArray(ptrArray, n);
 }
 
 int errorCheck(int value) { // check for valid inputs
