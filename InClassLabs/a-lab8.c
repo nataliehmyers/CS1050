@@ -42,8 +42,6 @@ int factorial(int value) { // takes the factorial of a given int
     return factorial;
 }
 
-
-
 void printArray(float *ptrArray, int size) { // prints array values
     int i;
     printf("The array for the Maclaurin series is:\n");
