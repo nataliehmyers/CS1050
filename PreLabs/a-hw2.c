@@ -96,7 +96,7 @@ int main(void) {
             } else if (flight_selected == 2) { // conditional for second flight selection
                 char flight_num2[] = "BNA1050";
                 printf("Enter your first name: ");
-                scanf("%s", &name);
+                scanf("%s", &name[MAX]);
                 printFlightMap(flight2);
                 seatReservation(flight2);
                 printf("Congrats %s!! Your flight %s is booked; enjoy your trip.\n", name, flight_num2);
@@ -105,7 +105,7 @@ int main(void) {
             } else { // default for third flight selection
                 char flight_num3[] = "LAS1050";
                 printf("Enter your first name: ");
-                scanf("%s", &name);
+                scanf("%s", &name[MAX]);
                 printFlightMap(flight3);
                 seatReservation(flight3);
                 printf("Congrats %s!! Your flight %s is booked; enjoy your trip.\n", name, flight_num3);
