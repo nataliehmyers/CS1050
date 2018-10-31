@@ -47,7 +47,7 @@ int main(void) {
         score_got = getScore();
         printf("Enter the Number of Units for course %d: ", i);
         getUnit();
-        printf("MULTIPLICATION OF SCP AND CU: %.2f\n"); // INCOMPLETE
+        printf("MULTIPLICATION OF SCP AND CU:\n"); // INCOMPLETE
         temporary_x = getScorePoint(score_got);
         x = temporary_x + x;
 
