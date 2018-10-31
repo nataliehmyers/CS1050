@@ -20,7 +20,7 @@ int main() {
     int user_selected_input = selection_function();
     float hyp_leg, hyp_length, hyp_result, repeat_prompt1, repeat_prompt2;
     float first_leg, second_leg, hyp_calc, hyp_leg1_squared, hyp_leg2_squared;
-    float missing_leg, missing_leg_squared, hyp_leg_pt1, hyp_hyp_pt2;
+    float missing_leg, hyp_leg_pt1, hyp_hyp_pt2;
 
     // for when user has two legs to compute
     if (user_selected_input == 1) {
