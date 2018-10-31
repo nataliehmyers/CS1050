@@ -71,7 +71,7 @@ int main() {
         hyp_leg_pt1 = pow(hyp_leg, 2);
         hyp_hyp_pt2 = pow(hyp_length, 2);
         missing_leg = sqrt(hyp_hyp_pt2+hyp_leg_pt1);
-        missing_leg_squared = pow(missing_leg, 2);
+        // missing_leg_squared = pow(missing_leg, 2);
 
         printf("Calculation: %.2f + %.2f = %.2f\nMissing leg length = %.2f\nDo you wish to calculate again?"
                "\nPress 0 for no, 1 for yes: ", hyp_leg_pt1, hyp_hyp_pt2, (hyp_leg_pt1+hyp_hyp_pt2), missing_leg);
