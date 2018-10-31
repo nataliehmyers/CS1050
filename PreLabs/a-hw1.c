@@ -147,5 +147,7 @@ int charge(int option) { // flat rate charge
     }
     if (option == 3) {
         return 850;
+    } else {
+        return 0;
     }
 }
