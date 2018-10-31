@@ -12,7 +12,7 @@ void initialize_pointerArray(int *, int);
 void print_pointerArray(int *, int);
 int find_max(int *, int);
 
-main(void) {
+int main(void) {
     int array[MAX];
     int *pointer = array;
     int size;
