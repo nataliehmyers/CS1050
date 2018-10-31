@@ -135,6 +135,10 @@ float getRate(int units, int option) { // returns rate
         }
     }
 
+    else {
+        return 0;
+    }
+
 }
 
 int charge(int option) { // flat rate charge
