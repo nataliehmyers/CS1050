@@ -102,7 +102,7 @@ void addN(int a[][MAX],int size)
 }
 int length(char x[])
 {
-    int i;
+    int i = 0;
 
     while(x[i]!='\0')
     {
