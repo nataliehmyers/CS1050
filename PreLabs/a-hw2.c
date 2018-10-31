@@ -87,7 +87,7 @@ int main(void) {
             if (flight_selected == 1) { // conditional for first flight selection
                 char flight_num1[] = "MIA1050";
                 printf("Enter your first name: ");
-                scanf("%s", &name);
+                scanf("%s", &name[MAX]);
                 printFlightMap(flight1);
                 seatReservation(flight1);
                 printf("Congrats %s!! Your flight %s is booked; enjoy your trip.\n", name, flight_num1);
