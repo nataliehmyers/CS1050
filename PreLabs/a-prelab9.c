@@ -12,7 +12,7 @@ void initialize_pointerArray(int *, int);
 void print_pointerArray(int *, int);
 int find_max(int *, int);
 
-main() {
+main(void) {
     int array[MAX];
     int *pointer = array;
     int size;
@@ -66,7 +66,7 @@ int find_max(int *pointer, int size) { // finds largest element in the array
     return max;
 }
 
-check_size(int size) { // checks size for validity
+int check_size(int size) { // checks size for validity
     while (size <= 0 || size > 50) { // checks for invalid input
         return 0;
     }
