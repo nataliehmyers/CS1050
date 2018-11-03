@@ -21,8 +21,7 @@ int main(void) {
     initialize_pointerArray(pointer, size); // initializes random numbers to array
     find_max(pointer, size); // finds the largest element in the array
     printf("The largest value in the pointer is:\n");
-    printf("%d", find_max(pointer, size)); // prints largest element
-    printf("\n");
+    printf("%d\n", find_max(pointer, size)); // prints largest element
 }
 
 void get_size(int *pointer) { // gets the size of the array from the user
