@@ -98,7 +98,7 @@ void bubble_sort(int *pointer, int size) {
 }
 
 float find_median(int *pointer, int size) {
-    bubble_sort(*pointer, size);
+    bubble_sort(pointer, size);
     if (size % 2 == 0) {
         return (*(pointer+size/2) + *(pointer+(size/2 - 1)) / 2.0);
     } else {
