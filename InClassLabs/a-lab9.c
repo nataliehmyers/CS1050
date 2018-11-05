@@ -13,6 +13,7 @@ int find_min(int*, int);
 int find_max(int *, int);
 void bubble_sort(int*, int);
 float find_median(int*, int);
+void reversed_array(int*, int);
 int check_size(int);
 
 int main(void) {
@@ -26,11 +27,11 @@ int main(void) {
     printf("The minimum of all the numbers = %d\n", find_min(pointer, size)); // prints smallest element
     printf("The maximum of all the numbers = %d\n", find_max(pointer, size)); // prints largest element
     printf("\nThe sorted pointer is:\n");
-    bubble_sort(pointer, size);
-    print_pointerArray(pointer, size);
+    bubble_sort(pointer, size); // sorts pointer array
+    print_pointerArray(pointer, size); // calls print function to print bubble sorted array
     printf("The median of the pointer is:\n");
-    printf("%.2f", find_median(pointer, size));
-    return 0;
+    printf("%.2f\n", find_median(pointer, size)); // prints median of pointer array
+    reversed_array(pointer, size); // reverses pointer array
 }
 
 void get_size(int *pointer) { // gets the size of the array from the user
@@ -86,12 +87,12 @@ int find_max(int *pointer, int size) { // finds largest element in the array
 void bubble_sort(int *pointer, int size) {
     int i, j;
     int temp = 0;
-    for (i = 0; i < size - 1; i++) {
-        for (j = 0; j < size - i - 1; j++) {
-            if (*(pointer+j) > *(pointer+j+1)) {
-                temp = *(pointer+j);
-                *(pointer+j) = *(pointer+j+1);
-                *(pointer+j+1) = temp;
+    for (i = 0; i < size - 1; i++) { // iterates through
+        for (j = 0; j < size - i - 1; j++) { // iterates through
+            if (*(pointer+j) > *(pointer+j+1)) { // finds reversed values
+                temp = *(pointer+j); // switches
+                *(pointer+j) = *(pointer+j+1); // changes places
+                *(pointer+j+1) = temp; // sets temp to new larger value
             }
         }
     }
@@ -99,10 +100,21 @@ void bubble_sort(int *pointer, int size) {
 
 float find_median(int *pointer, int size) {
     bubble_sort(pointer, size);
-    if (size % 2 == 0) {
-        return (*(pointer+size/2) + *(pointer+(size/2 - 1)) / 2.0);
+    if (size % 2 == 0) { // checks is size is even
+        return (*(pointer+size/2) + *(pointer+size/2 - 1)) / 2.0; // calculates median for even size
     } else {
-        return (*(pointer+size/2));
+        return *(pointer+size/2); // returns median for odd size
+    }
+}
+
+void reversed_array(int *pointer, int size) {
+    int i;
+    pointer += size; // sets pointer to opposite end
+    printf("\nThe pointer reversed and with every other number is:\n");
+    for (i = 1; i <= size + 1; i++) { // iterates through elements
+        if (i % 2 == 0) { // checks for even values
+            printf("%d ", *(pointer - i + 1));
+        }
     }
 }
 
