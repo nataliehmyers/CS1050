@@ -3,46 +3,71 @@
 // Created by Natalie Myers on 11/4/18
 
 #include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
 #include <ctype.h>
 #define MAX 20
 
 int getString(char *);
-int checkString(char*, int);
+int checkString(char *, int);
 int errorCheck(int);
+// void getSafeString(char *, int);
 
 int main(void) {
-    char array[MAX];
-    char *pointer = array;
+    int size;
+    char *pointer = malloc(sizeof(char) * MAX);
 
-    getString(*pointer);
+    size = getString(pointer);
+    printf("\nYou entered: %s which is size %d\n", pointer, size);
 }
 
 int getString(char *pointer) {
     int size;
-    char string[MAX];
 
     printf("Enter the size of the string: ");
     scanf("%d", &size);
-    errorCheck(size);
-    printf("Please enter the string: ");
-    scanf("%s", &string);
-    printf("%s", string);
-    // checkString()
+    while (errorCheck(size) == 0) {
+        printf("\nPlease enter again: ");
+        scanf("%d", &size);
+    }
+    printf("\nPlease enter the string: ");
+    scanf("%s", pointer);
+    while (strlen(pointer) > size) {
+        printf("\nThe string entered is longer than the allowed size\n"
+               "\nPlease enter a valid string: ");
+        scanf("%20s", pointer);
+    }
+    while (checkString(pointer, size) == 0) {
+        printf("\nPlease enter a valid string: ");
+        scanf("%s", pointer);
+    }
+    size = strlen(pointer);
+    for (int i = 0; i < size; i++) {
+        *(pointer + i) = toupper(*(pointer + i));
+    }
+    return size;
 }
 
 int errorCheck(int size) {
-    while (size < 1 || size > 20) {
-        printf("Please enter again: ");
-        scanf("%d", &size);
+    if (size < 1 || size > 20) {
+        return 0;
     }
+    return 1;
 }
 
-int checkString(char *pointer, int string) {
-
+int checkString(char *pointer, int size) {
+    int i;
+    for (i = 0; i < size; i++) {
+        if (isalpha(*(pointer + i)) != 1 && *(pointer + i) != '\0') {
+            return 0;
+        }
+    }
+    return 1;
 }
+
 
 /*
-void getSafeString(char *string, int maxsize) {
+void getSafeString(char *pointer, int maxsize) {
 
     int indexcur = 0;
     char charcur = '\n';
@@ -54,16 +79,16 @@ void getSafeString(char *string, int maxsize) {
     {
         if ('\n'!=charcur)
         {
-            string[indexcur] = charcur;
+            pointer[indexcur] = charcur;
         }
         indexcur++;
         charcur = getc(stdin);
     }
-    string[indexcur] = '\0';
+    pointer[indexcur] = '\0';
 
     while ('\n'!=charcur)
     {
         charcur = getc(stdin);
     }
 }
-*/
+ */
