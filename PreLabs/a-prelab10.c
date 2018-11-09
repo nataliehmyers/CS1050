@@ -42,9 +42,6 @@ int getString(char *pointer) {
         scanf("%s", pointer);
     }
     size = strlen(pointer);
-    for (int i = 0; i < size; i++) {
-        *(pointer + i) = toupper(*(pointer + i));
-    }
     return size;
 }
 
@@ -57,8 +54,11 @@ int errorCheck(int size) {
 
 int checkString(char *pointer, int size) {
     int i;
+    for (int i = 0; i < size; i++) {
+        *(pointer + i) = toupper(*(pointer + i));
+    }
     for (i = 0; i < size; i++) {
-        if (isalpha(*(pointer + i)) != 1 && *(pointer + i) != '\0') {
+        if ((*(pointer + i) < 65 || *(pointer + i) > 90) && *(pointer + i) != '\0') {
             return 0;
         }
     }
