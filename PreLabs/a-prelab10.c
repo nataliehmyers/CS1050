@@ -11,14 +11,14 @@
 int getString(char *);
 int checkString(char *, int);
 int errorCheck(int);
-// void getSafeString(char *, int);
+// void getSafeString(char *, int); - unused function
 
 int main(void) {
     int size;
-    char *pointer = malloc(sizeof(char) * MAX);
+    char *pointer = malloc(sizeof(char) * MAX); // allocates space in memory
 
-    size = getString(pointer);
-    printf("\nYou entered: %s which is size %d\n", pointer, size);
+    size = getString(pointer); // calls primary function that returns end result
+    printf("\nYou entered: %s which is size %d\n", pointer, size); // prints end result
 }
 
 int getString(char *pointer) {
@@ -26,27 +26,34 @@ int getString(char *pointer) {
 
     printf("Enter the size of the string: ");
     scanf("%d", &size);
-    while (errorCheck(size) == 0) {
+    while (errorCheck(size) == 0) { // pulls return value from error check function
         printf("\nPlease enter again: ");
         scanf("%d", &size);
     }
     printf("\nPlease enter the string: ");
-    scanf("%s", pointer);
-    while (strlen(pointer) > size) {
+    scanf("%20s", pointer);
+    while (strlen(pointer) > size) { // checks if string size is larger than assigned value
         printf("\nThe string entered is longer than the allowed size\n"
                "\nPlease enter a valid string: ");
         scanf("%20s", pointer);
     }
-    while (checkString(pointer, size) == 0) {
+    while (checkString(pointer, size) == 0) { // checks for any invalid characters in string
         printf("\nPlease enter a valid string: ");
-        scanf("%s", pointer);
+        scanf("%20s", pointer);
+
+        while (strlen(pointer) > size) { /* checks new string for length if it had invalid
+                                        * characters going into the first while loop */
+            printf("\nThe string entered is longer than the allowed size\n"
+                   "\nPlease enter a valid string: ");
+            scanf("%20s", pointer);
+        }
     }
-    size = strlen(pointer);
+    size = strlen(pointer); // assigns size to the size of the result string
     return size;
 }
 
 int errorCheck(int size) {
-    if (size < 1 || size > 20) {
+    if (size < 1 || size > 20) { // checks if size is invalid
         return 0;
     }
     return 1;
@@ -54,11 +61,11 @@ int errorCheck(int size) {
 
 int checkString(char *pointer, int size) {
     int i;
-    for (int i = 0; i < size; i++) {
+    for (int i = 0; i < size; i++) { // iterates through string
         *(pointer + i) = toupper(*(pointer + i));
     }
-    for (i = 0; i < size; i++) {
-        if ((*(pointer + i) < 65 || *(pointer + i) > 90) && *(pointer + i) != '\0') {
+    for (i = 0; i < size; i++) { // iterates through string
+        if ((*(pointer + i) < 65 || *(pointer + i) > 90) && *(pointer + i) != '\0') { // makes string all uppercase
             return 0;
         }
     }
