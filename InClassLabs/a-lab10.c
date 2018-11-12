@@ -103,7 +103,7 @@ void cipherString(char *pointer, int size, int shift) {
     for (int i = 0; i < size; i++) {
         *(pointer + i) = (*(pointer + i) + shift);
         if (checkString(pointer, size) == 1) {
-            if (shift + i > 90) {
+            while (shift + i > 90) {
                 shift = 65;
                 *(pointer + i) = (*(pointer + i) + shift);
             }
