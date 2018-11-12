@@ -40,6 +40,10 @@ int main(void) {
         scanf("%d", &guess);
     }
 
+    if (guess == shift) {
+        printf("\nThe cipher string shifted back %d is %s, that's correct!\n", shift, pointer);
+    }
+
 
 
     free(pointer);
