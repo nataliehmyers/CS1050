@@ -27,7 +27,7 @@ int main(void) {
         *(pointer1 + i) = *(pointer + i);
     }
     printf("\nYou entered: %s which is size %d\n", pointer1, size); // prints end result
-    cipherString(pointer1, size, shift);
+    cipherString(pointer1, size, shift); // ciphers string
     printf("\nThe ciphered string is %s, what is the cipher key? ", pointer1);
     scanf("%d", &guess);
 
@@ -36,9 +36,9 @@ int main(void) {
         scanf("%d", &guess);
     }
 
-    while (guess != shift) {
-        for (int i = 0; i < size; i++) {
-            cipherString(pointer, size, guess);
+    while (guess != shift) { // for incorrect input
+        for (int i = 0; i < size; i++) { // iterates through string
+            cipherString(pointer, size, guess); // pulls incorrect string
         }
         printf("\nThe cipher string shifted back %d is %s, incorrect!\n", guess, pointer);
 
@@ -46,8 +46,8 @@ int main(void) {
         scanf("%d", &guess);
     }
 
-    if (guess == shift) {
-        printf("\nThe cipher string shifted back %d is %s, that's correct!\n", shift, pointer);
+    if (guess == shift) { // for correct input
+        printf("\nThe cipher string shifted back %d is %s, that's correct!\n", shift, pointer1);
     }
 
     printf("\nThe sum of the ascii in %s is %d\n", pointer1, stringSum(pointer1, size));
@@ -108,11 +108,11 @@ int checkString(char *pointer, int size) {
 }
 
 void cipherString(char *pointer, int size, int shift) {
-    for (int i = 0; i < size; i++) {
-            if (*(pointer + i) + shift > 90) {
+    for (int i = 0; i < size; i++) { // iterates through string
+            if (*(pointer + i) + shift > 90) { // checks for passing largest ascii value
                 *(pointer + i) = (*(pointer + i) - 26 + shift);
         }
-        else if ((*(pointer + i) + shift < 65)) {
+        else if ((*(pointer + i) + shift < 65)) { // checks for passing lowest ascii value
                 *(pointer + i) = (*(pointer + i) + 26 + shift);
         } else {
                 *(pointer + i) = (*(pointer + i) + shift);
@@ -125,7 +125,7 @@ void cipherString(char *pointer, int size, int shift) {
 int stringSum(char *pointer, int size) {
     int sum;
 
-    for (int i = 0; i < size; i++) {
+    for (int i = 0; i < size; i++) { // iterates through string
         sum = sum + *(pointer + i);
     }
     return sum;
