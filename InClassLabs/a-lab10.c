@@ -12,8 +12,7 @@ int getString(char *);
 int checkString(char *, int);
 int errorCheck(int);
 void cipherString(char*, int, int);
-// int stringSum()
-// void getSafeString(char *, int); - unused function
+int stringSum(char*, int);
 
 int main(void) {
     int size, shift, guess;
@@ -102,36 +101,14 @@ int checkString(char *pointer, int size) {
 void cipherString(char *pointer, int size, int shift) {
     for (int i = 0; i < size; i++) {
         *(pointer + i) = (*(pointer + i) + shift);
-            if (shift + i > 90) {
+            if (shift + i >= 90) {
                 *(pointer + i) = (*(pointer + i) - 26 + shift);
         }
     }
     printf("\nThe ciphered string is %s, what is the cipher key: ", pointer);
 }
 
-/*
-void getSafeString(char *pointer, int maxsize) {
-
-    int indexcur = 0;
-    char charcur = '\n';
-
-    while ('\n'==charcur){
-        charcur = getc(stdin);
-    }
-    while (indexcur<(maxsize-1) && '\n'!=charcur)
-    {
-        if ('\n'!=charcur)
-        {
-            pointer[indexcur] = charcur;
-        }
-        indexcur++;
-        charcur = getc(stdin);
-    }
-    pointer[indexcur] = '\0';
-
-    while ('\n'!=charcur)
-    {
-        charcur = getc(stdin);
+int stringSum(char *pointer, int size) {
+    for (int i = 0; i < size; i++) {
     }
 }
- */
