@@ -44,7 +44,7 @@ int main(void) {
         printf("\nThe cipher string shifted back %d is %s, that's correct!\n", shift, pointer);
     }
 
-    printf("\nThe sum of the ascii in %s is %d", pointer, stringSum(pointer, size));
+    printf("\nThe sum of the ascii in %s is %d\n", pointer, stringSum(pointer, size));
 
     free(pointer);
     return 0;
