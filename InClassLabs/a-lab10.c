@@ -16,7 +16,7 @@ void cipherString(char*, int, int);
 // void getSafeString(char *, int); - unused function
 
 int main(void) {
-    int size, shift;
+    int size, shift, guess;
     shift = rand() % 25;
     char *pointer = malloc(sizeof(char) * (20+1)); // allocates space in memory
 
@@ -24,7 +24,7 @@ int main(void) {
     printf("\nYou entered: %s which is size %d\n", pointer, size); // prints end result
     cipherString(pointer, size, shift);
 
-    /*
+
     scanf("%d", &guess);
 
 
@@ -44,7 +44,7 @@ int main(void) {
 
 
 
-    */
+
     free(pointer);
     return 0;
 }
