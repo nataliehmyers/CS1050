@@ -16,7 +16,7 @@ int stringSum(char*, int);
 
 int main(void) {
     int size, shift, guess;
-    shift = rand() % 25;
+    shift = rand() % 26;
     char *pointer = malloc(sizeof(char) * (20+1)); // allocates space in memory
     char *pointer1 = malloc(sizeof(char) * (20+1));
 
