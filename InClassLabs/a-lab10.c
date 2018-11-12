@@ -30,12 +30,12 @@ int main(void) {
         scanf("%d", &guess);
     }
 
-    if (guess != shift) {
+    while (guess != shift) {
         for (int i = 0; i < size; i++) {
             cipherString(pointer, size, guess);
         }
         printf("\nThe cipher string shifted back %d is %s, incorrect!\n", guess, pointer);
-        cipherString(pointer, size, shift);
+
         printf("\nThe ciphered string is %s, what is the cipher key? ", pointer);
         scanf("%d", &guess);
     }
