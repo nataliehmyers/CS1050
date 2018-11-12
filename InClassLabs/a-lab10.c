@@ -26,7 +26,7 @@ int main(void) {
     }
     printf("\nYou entered: %s which is size %d\n", pointer, size); // prints end result
     cipherString(pointer, size, shift);
-    printf("\nThe ciphered string is %s, what is the cipher key? ", pointer);
+    printf("\nThe ciphered string is %s, what is the cipher key? ", pointer1);
     scanf("%d", &guess);
 
     while(guess < 1 || guess > 25) {
@@ -40,7 +40,7 @@ int main(void) {
         }
         printf("\nThe cipher string shifted back %d is %s, incorrect!\n", guess, pointer);
 
-        printf("\nThe ciphered string is %s, what is the cipher key? ", pointer);
+        printf("\nThe ciphered string is %s, what is the cipher key? ", pointer1);
         scanf("%d", &guess);
     }
 
@@ -48,7 +48,7 @@ int main(void) {
         printf("\nThe cipher string shifted back %d is %s, that's correct!\n", shift, pointer);
     }
 
-    printf("\nThe sum of the ascii in %s is %d\n", pointer, stringSum(pointer, size));
+    printf("\nThe sum of the ascii in %s is %d\n", pointer1, stringSum(pointer1, size));
 
     free(pointer);
     free(pointer1);
