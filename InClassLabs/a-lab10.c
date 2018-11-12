@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <time.h>
 #include <ctype.h>
 #define MAX 20
 
@@ -16,6 +17,7 @@ int stringSum(char*, int);
 
 int main(void) {
     int size, shift, guess;
+    srand(time(NULL));
     shift = rand() % 26;
     char *pointer = malloc(sizeof(char) * (20+1)); // allocates space in memory
     char *pointer1 = malloc(sizeof(char) * (20+1));
