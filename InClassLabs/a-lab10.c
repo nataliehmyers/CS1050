@@ -44,7 +44,7 @@ int main(void) {
         printf("\nThe cipher string shifted back %d is %s, that's correct!\n", shift, pointer);
     }
 
-
+    printf("\nThe sum of the ascii in %s is %d", pointer, stringSum(pointer, size));
 
     free(pointer);
     return 0;
@@ -114,10 +114,13 @@ void cipherString(char *pointer, int size, int shift) {
 }
 
 
-/*
+
 int stringSum(char *pointer, int size) {
+    int sum;
+
     for (int i = 0; i < size; i++) {
+        sum = sum + *(pointer + i);
     }
+    return sum;
 }
 
-*/
