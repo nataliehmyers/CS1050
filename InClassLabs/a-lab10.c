@@ -47,10 +47,10 @@ int main(void) {
     }
 
     if (guess == shift) { // for correct input
-        printf("\nThe cipher string shifted back %d is %s, that's correct!\n", shift, pointer1);
+        printf("\nThe cipher string shifted back %d is %s, that's correct!\n", shift, pointer);
     }
 
-    printf("\nThe sum of the ascii in %s is %d\n", pointer1, stringSum(pointer1, size));
+    printf("\nThe sum of the ascii in %s is %d\n", pointer, stringSum(pointer, size));
 
     free(pointer);
     free(pointer1);
