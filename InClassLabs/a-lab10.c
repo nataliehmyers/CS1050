@@ -40,7 +40,6 @@ int main(void) {
     }
 
 
-    */
 
     free(pointer);
     return 0;
