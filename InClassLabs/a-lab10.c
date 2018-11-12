@@ -15,15 +15,13 @@ void cipherString(char*, int, int);
 int stringSum(char*, int);
 
 int main(void) {
-    int size, shift;
+    int size, shift, guess;
     shift = rand() % 25;
     char *pointer = malloc(sizeof(char) * (20+1)); // allocates space in memory
 
     size = getString(pointer); // calls primary function that returns end result
     printf("\nYou entered: %s which is size %d\n", pointer, size); // prints end result
     cipherString(pointer, size, shift);
-
-    /*
     scanf("%d", &guess);
 
 
