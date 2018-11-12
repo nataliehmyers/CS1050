@@ -18,8 +18,12 @@ int main(void) {
     int size, shift, guess;
     shift = rand() % 25;
     char *pointer = malloc(sizeof(char) * (20+1)); // allocates space in memory
+    char *pointer1 = malloc(sizeof(char) * (20+1));
 
     size = getString(pointer); // calls primary function that returns end result
+    for (int i =0; i < size; i++) {
+        *(pointer1 + i) = *(pointer + i);
+    }
     printf("\nYou entered: %s which is size %d\n", pointer, size); // prints end result
     cipherString(pointer, size, shift);
     printf("\nThe ciphered string is %s, what is the cipher key? ", pointer);
@@ -36,7 +40,7 @@ int main(void) {
         }
         printf("\nThe cipher string shifted back %d is %s, incorrect!\n", guess, pointer);
 
-        printf("\nThe ciphered string is %s, what is the cipher key? ", pointer);
+        printf("\nThe ciphered string is %s, what is the cipher key? ", pointer1);
         scanf("%d", &guess);
     }
 
@@ -47,6 +51,7 @@ int main(void) {
     printf("\nThe sum of the ascii in %s is %d\n", pointer, stringSum(pointer, size));
 
     free(pointer);
+    free(pointer1);
     return 0;
 }
 
