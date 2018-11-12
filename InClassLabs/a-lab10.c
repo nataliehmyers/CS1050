@@ -102,8 +102,10 @@ int checkString(char *pointer, int size) {
 void cipherString(char *pointer, int size, int shift) {
     for (int i = 0; i < size; i++) {
         *(pointer + i) = (*(pointer + i) + shift);
-        if (shift + i > 90) {
-            shift = 65;
+        if (checkString(pointer, size) == 1) {
+            if (shift + i > 90) {
+                shift = 65;
+            }
         }
     }
     printf("\nThe ciphered string is %s, what is the cipher key: ", pointer);
