@@ -33,10 +33,10 @@ int main(void) {
     }
 
     while (guess != shift) {
-        for (int i = 0; i < size; i++)
-        *(pointer + i) = *(pointer + guess + i);
+        for (int i = 0; i < size; i++) {
+            cipherString(pointer, size, guess);
+        }
         printf("\nThe cipher string shifted back %d is %s, incorrect!\n", guess, pointer);
-        cipherString(pointer, size, shift);
     }
 
 
