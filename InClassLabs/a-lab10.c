@@ -22,10 +22,8 @@ int main(void) {
     size = getString(pointer); // calls primary function that returns end result
     printf("\nYou entered: %s which is size %d\n", pointer, size); // prints end result
     cipherString(pointer, size, shift);
+    printf("\nThe ciphered string is %s, what is the cipher key: ", pointer);
     scanf("%d", &guess);
-
-
-
 
     while(guess < 1 || guess > 25) {
         printf("\nThe cipher key is between 1-25, try again: ");
@@ -106,7 +104,7 @@ void cipherString(char *pointer, int size, int shift) {
                 *(pointer + i) = (*(pointer + i) + shift);
             }
         }
-    printf("\nThe ciphered string is %s, what is the cipher key: ", pointer);
+    // printf("\nThe ciphered string is %s, what is the cipher key: ", pointer);
 }
 
 
