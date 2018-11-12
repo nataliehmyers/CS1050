@@ -36,7 +36,7 @@ int main(void) {
 
     while (guess != shift) {
         for (int i = 0; i < size; i++) {
-            cipherString(pointer, size, guess);
+            cipherString(pointer1, size, guess);
         }
         printf("\nThe cipher string shifted back %d is %s, incorrect!\n", guess, pointer);
 
@@ -48,7 +48,7 @@ int main(void) {
         printf("\nThe cipher string shifted back %d is %s, that's correct!\n", shift, pointer);
     }
 
-    printf("\nThe sum of the ascii in %s is %d\n", pointer, stringSum(pointer, size));
+    printf("\nThe sum of the ascii in %s is %d\n", pointer, stringSum(pointer1, size));
 
     free(pointer);
     free(pointer1);
