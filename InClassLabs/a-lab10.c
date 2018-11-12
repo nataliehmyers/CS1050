@@ -30,7 +30,7 @@ int main(void) {
         scanf("%d", &guess);
     }
 
-    while (guess != shift) {
+    if (guess != shift) {
         for (int i = 0; i < size; i++) {
             cipherString(pointer, size, guess);
         }
