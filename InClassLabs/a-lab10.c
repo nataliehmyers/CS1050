@@ -23,7 +23,7 @@ int main(void) {
     printf("\nYou entered: %s which is size %d\n", pointer, size); // prints end result
     cipherString(pointer, size, shift);
 
-
+    /*
     scanf("%d", &guess);
 
 
@@ -42,7 +42,7 @@ int main(void) {
     }
 
 
-
+    */
 
     free(pointer);
     return 0;
