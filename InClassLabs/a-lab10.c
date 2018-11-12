@@ -108,7 +108,11 @@ void cipherString(char *pointer, int size, int shift) {
     printf("\nThe ciphered string is %s, what is the cipher key: ", pointer);
 }
 
+
+/*
 int stringSum(char *pointer, int size) {
     for (int i = 0; i < size; i++) {
     }
 }
+
+*/
