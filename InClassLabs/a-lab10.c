@@ -107,7 +107,6 @@ void cipherString(char *pointer, int size, int shift) {
                 *(pointer + i) = (*(pointer + i) + shift);
             }
         }
-    // printf("\nThe ciphered string is %s, what is the cipher key: ", pointer);
 }
 
 
