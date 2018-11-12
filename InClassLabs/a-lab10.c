@@ -24,9 +24,9 @@ int main(void) {
     for (int i =0; i < size; i++) {
         *(pointer1 + i) = *(pointer + i);
     }
-    printf("\nYou entered: %s which is size %d\n", pointer, size); // prints end result
-    cipherString(pointer, size, shift);
-    printf("\nThe ciphered string is %s, what is the cipher key? ", pointer);
+    printf("\nYou entered: %s which is size %d\n", pointer1, size); // prints end result
+    cipherString(pointer1, size, shift);
+    printf("\nThe ciphered string is %s, what is the cipher key? ", pointer1);
     scanf("%d", &guess);
 
     while(guess < 1 || guess > 25) {
