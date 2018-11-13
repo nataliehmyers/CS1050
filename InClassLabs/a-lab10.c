@@ -6,7 +6,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <time.h>
-// #include <ctype.h>
+#include <ctype.h>
 #define MAX 20
 
 int getString(char *);
@@ -97,7 +97,7 @@ int errorCheck(int size) {
 
 int checkString(char *pointer, int size) {
     for (int i = 0; i < size; i++) { // iterates through string
-        *(pointer + i) = (*(pointer + i) - 32);
+        *(pointer + i) = toupper(*(pointer + i));
     }
     for (int i = 0; i < size; i++) { // iterates through string
         if ((*(pointer + i) < 65 || *(pointer + i) > 90) && *(pointer + i) != '\0') { // makes string all uppercase
