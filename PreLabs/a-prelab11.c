@@ -1,18 +1,51 @@
 // An exercise in file I/O processing
-// Created by Natalie Myers on 11/13/18.
+// Created by Natalie Myers on 11/13/18
 
 #include <stdio.h>
 #define MAX 30
 
 void get_size(int *);
 int check_size(int);
-void load_sructdata(char *, int);
+void load_structdata(char *, int);
 void print_data(int size);
 
-void main(void){
+
+struct student
+{
+    char name[MAX];
+    int id;
+    int grade;
+};
+
+// global variable as per instructions
+struct student students[MAX];
+
+int main(int argc, char *argv[]) {
     int size;
+    if (argc < 2) {
+        printf("Incorrect number of arguments");
+        return 1;
+    }
     get_size(&size);
     check_size(size);
+    load_structdata(argv[1], size);
+    print_data(size);
+    return 0;
+}
+
+void load_structdata(char *filename, int size) {
+    FILE *fp;
+    fp = fopen(filename, "r");
+    for (int i = 0; i < size; i++) {
+        fscanf(fp, "%s\t%d\t%d", students[i].name, &students[i].id, &students[i].grade);
+    }
+}
+
+void print_data(int size) {
+    printf("Student-Record\n\ns/no\tName\tId\tGrade\n");
+    for (int i = 0; i < size; i++) {
+        printf("%d\t%s\t%d\t%d\n", i+1, students[i].name, students[i].id, students[i].grade);
+    }
 }
 
 void get_size(int *pointer) { // gets the size of the array from the user
