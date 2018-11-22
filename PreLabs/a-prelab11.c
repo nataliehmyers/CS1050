@@ -10,7 +10,7 @@ void load_structdata(char *, int);
 void print_data(int size);
 
 
-struct student
+struct student // defines struct parameter
 {
     char name[MAX];
     int id;
@@ -22,29 +22,29 @@ struct student students[MAX];
 
 int main(int argc, char *argv[]) {
     int size;
-    if (argc < 2) {
+    if (argc < 2) { // checks for appropriate number of command line arguments
         printf("Incorrect number of arguments");
         return 1;
     }
-    get_size(&size);
-    check_size(size);
-    load_structdata(argv[1], size);
-    print_data(size);
+    get_size(&size); // calls function to get input for the size
+    check_size(size); // calls function to check for a valid inout
+    load_structdata(argv[1], size); // calls function to read data file
+    print_data(size); // calls function to print file data
     return 0;
 }
 
-void load_structdata(char *filename, int size) {
-    FILE *fp;
-    fp = fopen(filename, "r");
-    for (int i = 0; i < size; i++) {
-        fscanf(fp, "%s\t%d\t%d", students[i].name, &students[i].id, &students[i].grade);
+void load_structdata(char *filename, int size) { // scans data
+    FILE *fp; // defines a FILE pointer
+    fp = fopen(filename, "r"); // opens a file in read mode and sets the command to a variable
+    for (int i = 0; i < size; i++) { // iterates from 0 up to the given size
+        fscanf(fp, "%s\t%d\t%d", students[i].name, &students[i].id, &students[i].grade); // scans file for selected information
     }
 }
 
-void print_data(int size) {
+void print_data(int size) { // prints data
     printf("Student-Record\n\ns/no\tName\tId\tGrade\n");
-    for (int i = 0; i < size; i++) {
-        printf("%d\t%s\t%d\t%d\n", i+1, students[i].name, students[i].id, students[i].grade);
+    for (int i = 0; i < size; i++) { // iterates from 0 up to the given size
+        printf("%d\t%s\t%d\t%d\n", i+1, students[i].name, students[i].id, students[i].grade); // prints select information
     }
 }
 
