@@ -16,6 +16,7 @@ int main(int argc, char *filename[]) {
         printf("Incorrect number of arguments\nSyntax: ./a.out input_file_name output_file_name\n");
         return 1;
     }
+    get_record_count(filename);
 }
 
 int get_record_count(char *filename) {
