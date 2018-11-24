@@ -12,6 +12,10 @@ float average_amount(float *, int);
 int write_data(char *, int *, float *, int , int, int, float);
 
 int main(int argc, char *filename[]) {
+    if (argc < 2) { // checks for appropriate number of command line arguments
+        printf("Incorrect number of arguments\nSyntax: ./a.out input_file_name output_file_name\n");
+        return 1;
+    }
 }
 
 int get_record_count(char *filename) {
@@ -24,9 +28,6 @@ int get_record_count(char *filename) {
         if(x == '\n')
         {
             x++;
-        }
-        if(fp == NULL) {
-            printf("Unable to open the input file");
         }
     }
     return x;
