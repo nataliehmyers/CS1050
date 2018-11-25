@@ -110,6 +110,10 @@ float average_amount(float *balances, int record_count) {
 int write_data(char *output_file, int *accounts, float *balances, int record_count, int max_index, int min_index, float calc_average) {
     FILE *fp; // defines a FILE pointer
     fp = fopen(output_file, "w");
+    if (fp == NULL) {
+        printf("Unable to open the input file\n");
+        return 1;
+    }
     fprintf(fp, "Account No.\tAmount\n");
     for (int i = 0; i < record_count; i++) {
         fprintf(fp, "%d\t\t%.2f\n", accounts[i], balances[i]);
@@ -120,4 +124,5 @@ int write_data(char *output_file, int *accounts, float *balances, int record_cou
             balances[max_index], accounts[max_index],
             balances[min_index], accounts[min_index],
             calc_average);
+    return 0;
 }
