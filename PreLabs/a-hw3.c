@@ -23,30 +23,29 @@ int main(int argc, char *argv[]) {
     int *accounts = malloc(sizeof(int) * record_count);
     float *balances = malloc(sizeof(float) * record_count);
 
-    load_data(input_file, accounts, balances, record_count);
-    print_data(accounts, balances, record_count);
-    int max_index = highest_amount(balances, record_count);
+    load_data(input_file, accounts, balances, record_count); // calls function to scan input file
+    print_data(accounts, balances, record_count); // calls function to print data
+    int max_index = highest_amount(balances, record_count); // initializes max index variable from function
     printf("\nThe highest amount of $%.2f is in the account number %d", balances[max_index], accounts[max_index]);
-    int min_index = lowest_amount(balances, record_count);
+    int min_index = lowest_amount(balances, record_count); // initializes min index variable from function
     printf("\nThe lowest amount of $%.2f is in the account number %d", balances[min_index], accounts[min_index]);
-    float calc_average = average_amount(balances, record_count);
+    float calc_average = average_amount(balances, record_count); // initializes average index from function
     printf("\nThe average amount is $%.2f\n", calc_average);
-    write_data(output_file, accounts, balances, record_count, max_index, min_index, calc_average);
+    write_data(output_file, accounts, balances, record_count, max_index, min_index, calc_average); /* calls function
+ *                                                                                      to write data to output file*/
 
     free(accounts);
     free(balances);
 }
 
-int get_record_count(char *filename) {
+int get_record_count(char *filename) { // counts number of lines in input file
     int num_count = 1;
     int next_char;
     FILE *fp; // defines a FILE pointer
     fp = fopen(filename, "r"); // opens a file in read mode and sets the command to a variable
     next_char = fgetc(fp);
-    while(next_char != EOF)
-    {
-        if(next_char == '\n')
-        {
+    while (next_char != EOF) { // loops through file characters that are not end of file
+        if (next_char == '\n') { // checks for new line escape character
             num_count++;
         }
         next_char = fgetc(fp);
@@ -55,31 +54,31 @@ int get_record_count(char *filename) {
     return num_count;
 }
 
-int load_data(char *filename, int *accounts, float *balances, int record_count) {
+int load_data(char *filename, int *accounts, float *balances, int record_count) { // scans data form input file
     FILE *fp; // defines a FILE pointer
     fp = fopen(filename, "r"); // opens a file in read mode and sets the command to a variable
-    if (fp == NULL) {
+    if (fp == NULL) { // checks for valid input
         printf("Unable to open the input file\n");
         return 1;
     }
-    for (int i = 0; i < record_count; i++) { // iterates from 0 up to the given size
+    for (int i = 0; i < record_count; i++) { // iterates from 0 up to the length of the input file
         fscanf(fp, "%d %f", &accounts[i], &balances[i]); // scans file for selected information
     }
     return 0;
 }
 
-void print_data(int *accounts, float *balances, int record_count){
+void print_data(int *accounts, float *balances, int record_count) { // prints data from input file
     printf("Account No.\tAmount\n");
-    for(int i = 0; i < record_count; i++) {
+    for (int i = 0; i < record_count; i++) { // iterates from 0 up to the length of the input file
         printf("%d\t\t%.2f\n", accounts[i], balances[i]);
     }
 }
 
-int highest_amount(float *balances, int record_count) {
+int highest_amount(float *balances, int record_count) { // finds highest value in input file
     float max = -2147483648;
     int index = -1;
-    for (int i = 0; i < record_count; i++) {
-        if (balances[i] > max) {
+    for (int i = 0; i < record_count; i++) { // iterates from 0 up to the length of the input file
+        if (balances[i] > max) { // searches for greater values
             max = balances[i];
             index = i;
         }
@@ -87,11 +86,11 @@ int highest_amount(float *balances, int record_count) {
     return index;
 }
 
-int lowest_amount(float *balances, int record_count) {
+int lowest_amount(float *balances, int record_count) { // finds highest value in input file
     float min = 2147483647;
     int index = -1;
-    for (int i = 0; i < record_count; i++) {
-        if (balances[i] < min) {
+    for (int i = 0; i < record_count; i++) { // iterates from 0 up to the length of the input file
+        if (balances[i] < min) { // searches for smaller values
             min = balances[i];
             index = i;
         }
@@ -99,23 +98,24 @@ int lowest_amount(float *balances, int record_count) {
     return index;
 }
 
-float average_amount(float *balances, int record_count) {
+float average_amount(float *balances, int record_count) { // calculates average of balances
     float total = 0;
-    for (int i = 0; i < record_count; i++) {
+    for (int i = 0; i < record_count; i++) { // iterates from 0 up to the length of the input file
         total += balances[i];
     }
     return total/record_count;
 }
 
+// writes data to output file
 int write_data(char *output_file, int *accounts, float *balances, int record_count, int max_index, int min_index, float calc_average) {
     FILE *fp; // defines a FILE pointer
     fp = fopen(output_file, "w");
-    if (fp == NULL) {
+    if (fp == NULL) { // checks for valid input
         printf("Unable to open the input file\n");
         return 1;
     }
     fprintf(fp, "Account No.\tAmount\n");
-    for (int i = 0; i < record_count; i++) {
+    for (int i = 0; i < record_count; i++) { // iterates from 0 up to the length of the input file
         fprintf(fp, "%d\t\t%.2f\n", accounts[i], balances[i]);
     }
     fprintf(fp, "\nhe highest amount of $%.2f is in the account number %d"
