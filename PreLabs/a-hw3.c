@@ -118,7 +118,7 @@ int write_data(char *output_file, int *accounts, float *balances, int record_cou
     for (int i = 0; i < record_count; i++) { // iterates from 0 up to the length of the input file
         fprintf(fp, "%d\t\t%.2f\n", accounts[i], balances[i]);
     }
-    fprintf(fp, "\nhe highest amount of $%.2f is in the account number %d"
+    fprintf(fp, "\nThe highest amount of $%.2f is in the account number %d"
                 "\nThe lowest amount of $%.2f is in the account number %d"
                 "\nThe average amount is $%.2f\n",
             balances[max_index], accounts[max_index],
