@@ -8,6 +8,6 @@ Account No.	Amount
 9036		3655.80
 5410		1745.35
 
-he highest amount of $9452.05 is in the account number 3125
+The highest amount of $9452.05 is in the account number 3125
 The lowest amount of $15.65 is in the account number 4981
 The average amount is $2924.11

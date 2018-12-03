@@ -2,7 +2,7 @@
 // Created by Natalie Myers on 11/13/18
 
 #include <stdio.h>
-#define MAX 30
+#define MAX 22
 
 void get_size(int *);
 int check_size(int);
@@ -22,12 +22,11 @@ struct student students[MAX];
 
 int main(int argc, char *argv[]) {
     int size;
-    if (argc < 2) { // checks for appropriate number of command line arguments
+    if (argc != 2) { // checks for appropriate number of command line arguments
         printf("Incorrect number of arguments");
         return 1;
     }
     get_size(&size); // calls function to get input for the size
-    check_size(size); // calls function to check for a valid inout
     load_structdata(argv[1], size); // calls function to read data file
     print_data(size); // calls function to print file data
     return 0;
@@ -55,7 +54,7 @@ void get_size(int *pointer) { // gets the size of the array from the user
     printf("======================================================\n");
     check_size(size); // error checks input from user
     while (check_size(size) == 0) { // checks for invalid input
-        printf("Invalid Size Entered! Minimum is 1 and Maximum is 50!\n");
+        printf("Invalid Size Entered! Minimum is 1 and Maximum is 22!\n");
         printf("======================================================\n");
         printf("Please enter again: ");
         scanf("%d", &size);
@@ -65,7 +64,7 @@ void get_size(int *pointer) { // gets the size of the array from the user
 }
 
 int check_size(int size) { // checks size for validity
-    while (size < 1 || size > 50) { // checks for invalid input
+    while (size < 1 || size > 22) { // checks for invalid input
         return 0;
     }
     return 1;
