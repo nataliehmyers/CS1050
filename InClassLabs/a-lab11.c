@@ -151,15 +151,12 @@ void frequency(char *filename, int size, int group) {
     printf("s/no\tCity\tFrequency\n");
 
     for (int i = 0; i < size; i++) {
-        frequency1 = strcmp(addresses[1].city, addresses[i].city);
         if (strcmp(addresses[1].city, addresses[i].city) > 1) {
             frequency1++;
         }
-        frequency2 = strcmp(addresses[2].city, addresses[i].city);
         if (strcmp(addresses[2].city, addresses[i].city) > 1) {
             frequency2++;
         }
-        frequency3 = strcmp(addresses[3].city, addresses[i].city);
         if (strcmp(addresses[3].city, addresses[i].city) > 1) {
             frequency3++;
         }
