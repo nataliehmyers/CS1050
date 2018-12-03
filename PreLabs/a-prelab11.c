@@ -23,7 +23,7 @@ struct student students[MAX];
 int main(int argc, char *argv[]) {
     int size;
     if (argc != 2) { // checks for appropriate number of command line arguments
-        printf("Incorrect number of arguments");
+        printf("Incorrect number of arguments\n");
         return 1;
     }
     get_size(&size); // calls function to get input for the size
